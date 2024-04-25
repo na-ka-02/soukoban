@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour
 {
+    
+    //02の課題
     void PrintArray()
     {
         string debugText = "";
@@ -54,14 +56,47 @@ public class GameManagerScript : MonoBehaviour
         map[moveFrom] = 0;
         return true;
     }
+    
+
     //配列の宣言
+    //01と02の課題
     int[] map;
+
+    //03の課題
+    //int[,] map;
+
     // Start is called before the first frame update
     void Start()
     {
         //配列の実態の作成と初期化
+
+        //01と02の課題
         map = new int[] { 0, 0, 0, 1, 0, 2, 0, 0, 0 };
         PrintArray();
+
+
+        //03の課題
+        //初期化の例
+        /*
+        map = new int[,]
+        {
+            { 0,0,0,0,0 },
+            { 0,0,1,0,0 },
+            { 0,0,0,0,0 },
+        };
+
+        string debugText = "";
+        //変更。二重for文で二次元配列の情報を出力
+        for (int y = 0; y < map.GetLength(0); y++)
+        {
+            for (int x = 0; x < map.GetLength(1); x++)
+            {
+                debugText += map[y, x].ToString() + ",";
+            }
+            debugText+= "\n";// 改行
+        }
+        Debug.Log(debugText); 
+         */
 
         /* 01の課題
         //文字列と宣言の初期化
@@ -79,6 +114,7 @@ public class GameManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //02の課題
         //右
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
@@ -91,6 +127,7 @@ public class GameManagerScript : MonoBehaviour
             }
             //移動処理を関数か
             MoveNumber(1, playerIndex, playerIndex + 1);
+
             PrintArray();
         }
         //左
@@ -107,6 +144,7 @@ public class GameManagerScript : MonoBehaviour
             MoveNumber(1, playerIndex, playerIndex - 1);
             PrintArray();
         }
+
 
         /*01の課題
         //入力処理
