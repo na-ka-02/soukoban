@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour
 {
-    
+
     //02の課題
     void PrintArray()
     {
@@ -56,7 +56,7 @@ public class GameManagerScript : MonoBehaviour
         map[moveFrom] = 0;
         return true;
     }
-    
+
 
     //配列の宣言
     //01と02の課題
@@ -71,7 +71,7 @@ public class GameManagerScript : MonoBehaviour
         //配列の実態の作成と初期化
 
         //01と02の課題
-        map = new int[] { 0, 0, 0, 1, 0, 2, 0, 0, 0 };
+        map = new int[] { 0, 0, 2, 1, 0, 2, 0, 0, 0 };
         PrintArray();
 
 
@@ -120,11 +120,6 @@ public class GameManagerScript : MonoBehaviour
         {
             //メソッド化した処理を使用
             int playerIndex = GetPlayerIndex();
-            if (playerIndex < map.Length - 1)
-            {
-                map[playerIndex + 1] = 1;
-                map[playerIndex] = 0;
-            }
             //移動処理を関数か
             MoveNumber(1, playerIndex, playerIndex + 1);
 
@@ -135,12 +130,8 @@ public class GameManagerScript : MonoBehaviour
         {
             //メソッド化した処理を使用
             int playerIndex = GetPlayerIndex();
-            if (playerIndex > 0)
-            {
-                map[playerIndex - 1] = 1;
-                map[playerIndex] = 0;
-            }
-            //移動処理を関数か
+            
+            //移動処理を関数化
             MoveNumber(1, playerIndex, playerIndex - 1);
             PrintArray();
         }
