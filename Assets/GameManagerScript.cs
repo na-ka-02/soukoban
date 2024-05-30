@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.SceneManagement;
 
 public class GameManagerScript : MonoBehaviour
 {
@@ -104,6 +105,9 @@ public class GameManagerScript : MonoBehaviour
 
     void Start()
     {
+        //解像度とウィンドウモード
+        Screen.SetResolution(1280,720,false);
+        //クリアしたときのテクスチャの表示
         clearText.SetActive(false);
 
         map = new int[,]
@@ -170,6 +174,10 @@ public class GameManagerScript : MonoBehaviour
 
         if (IsClear())
             clearText.SetActive(true);
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
